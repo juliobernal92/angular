@@ -3,12 +3,13 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.routes'), // export default
+    loadComponent: () =>
+      import('./pages/home/home.component').then(m => m.HomeComponent),
   },
   {
     path: 'noticias',
-    loadChildren: () => import('./pages/noticias/noticias.routes'), // export default
+    loadComponent: () =>
+      import('./pages/noticias/noticias.component').then(m => m.NoticiasComponent),
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'home' } // opcional 404
 ];
