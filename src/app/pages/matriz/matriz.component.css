@@ -1,0 +1,42 @@
+h2 { margin: 0 0 1rem; }
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: .75rem 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: grid;
+  gap: .35rem;
+}
+
+input[type="number"] {
+  width: 6rem;
+  padding: .4rem .5rem;
+}
+
+.acciones { display: flex; gap: .5rem; }
+
+button {
+  padding: .45rem .8rem;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+button:hover { background: #eee; }
+button.secundario { background: #fafafa; }
+
+.error { color: #b00020; }
+.hint { color: #666; }
+
+.tabla table { border-collapse: collapse; }
+.tabla td {
+  border: 1px solid #ddd;
+  padding: .4rem .6rem;
+  text-align: center;
+  min-width: 2.2rem;
+}

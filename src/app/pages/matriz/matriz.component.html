@@ -1,0 +1,32 @@
+<h2>Generador de Matriz</h2>
+
+<div class="panel">
+  <label>
+    Filas
+    <input type="number" [(ngModel)]="filas" min="1" max="50" />
+  </label>
+
+  <label>
+    Columnas
+    <input type="number" [(ngModel)]="columnas" min="1" max="50" />
+  </label>
+
+  <div class="acciones">
+    <button (click)="generar()">Generar matriz</button>
+    <button class="secundario" (click)="limpiar()">Limpiar</button>
+  </div>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>
+
+<div class="tabla" *ngIf="matriz.length">
+  <table>
+    <tbody>
+      <tr *ngFor="let fila of matriz; trackBy: trackByIndex">
+        <td *ngFor="let celda of fila; trackBy: trackByIndex">{{ celda }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p *ngIf="!matriz.length" class="hint">Ingrese filas y columnas, luego presione “Generar matriz”.</p>

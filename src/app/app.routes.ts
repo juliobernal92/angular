@@ -11,5 +11,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/noticias/noticias.component').then(m => m.NoticiasComponent),
   },
+  {
+    path: 'matriz',
+    loadComponent: () =>
+      import('./pages/matriz/matriz.component').then(m => m.MatrizComponent),
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
