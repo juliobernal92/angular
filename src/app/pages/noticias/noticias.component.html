@@ -1,0 +1,31 @@
+<h2>Últimas noticias</h2>
+
+<!-- Controles de filtro -->
+<div class="filtros">
+  <label>
+    Desde:
+    <input type="date" [(ngModel)]="desde">
+  </label>
+
+  <label>
+    Hasta:
+    <input type="date" [(ngModel)]="hasta">
+  </label>
+
+  <label>
+    Buscar:
+    <input type="text" placeholder="título o contenido" [(ngModel)]="busqueda">
+  </label>
+</div>
+
+<!-- Lista -->
+<ul>
+  <li *ngFor="let n of noticiasFiltradas">
+    <h3>{{ n.titulo }}</h3>
+    <small>{{ n.fecha | date:'mediumDate' }}</small>
+    <p>{{ n.contenido }}</p>
+  </li>
+</ul>
+
+<!-- Empty state -->
+<p *ngIf="noticiasFiltradas.length === 0">No hay noticias para los filtros seleccionados.</p>

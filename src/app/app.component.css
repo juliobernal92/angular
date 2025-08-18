@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Empuja el contenido por debajo del navbar fijo */
+main.contenido {
+  flex: 1;
+  padding: 1rem;
+  padding-top: 70px; /* ajusta 56–70px según tu navbar */
+}
+
+@media (max-width: 991px) {
+  main.contenido {
+    padding-top: 56px;
+  }
+}
