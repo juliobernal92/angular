@@ -17,8 +17,8 @@ export class MatrizComponent {
   columnas: number | null = null;
   matriz: Matriz = [];
   error = '';
+  aux =true;
 
-  // --- API pública (acciones) ---
   generar(): void {
     this.error = '';
     if (!this.esValido(this.filas) || !this.esValido(this.columnas)) {
@@ -33,6 +33,7 @@ export class MatrizComponent {
     this.columnas = null;
     this.matriz = [];
     this.error = '';
+    this.aux=true;
   }
 
   // --- Funciones puras/utilitarias ---
@@ -49,6 +50,7 @@ export class MatrizComponent {
       }
       m.push(fila);
     }
+    this.aux=false;
     return m;
   }
 

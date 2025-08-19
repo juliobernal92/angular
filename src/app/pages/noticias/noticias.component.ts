@@ -1,5 +1,5 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 type Noticia = {
@@ -11,7 +11,7 @@ type Noticia = {
 @Component({
   selector: 'app-noticias',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, DatePipe],
   templateUrl: './noticias.component.html',
   styleUrls: ['./noticias.component.css']
 })

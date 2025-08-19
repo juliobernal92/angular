@@ -1,32 +1,47 @@
 <h2>Generador de Matriz</h2>
 
 <div class="panel">
-  <label>
-    Filas
-    <input type="number" [(ngModel)]="filas" min="1" max="50" />
-  </label>
+    <label>
+        Filas
+        <input type="number" [(ngModel)]="filas" min="1" max="50" />
+    </label>
 
-  <label>
-    Columnas
-    <input type="number" [(ngModel)]="columnas" min="1" max="50" />
-  </label>
+    <label>
+        Columnas
+        <input type="number" [(ngModel)]="columnas" min="1" max="50" />
+    </label>
 
-  <div class="acciones">
-    <button (click)="generar()">Generar matriz</button>
-    <button class="secundario" (click)="limpiar()">Limpiar</button>
-  </div>
+    <div class="acciones">
+        @if (aux) {
+        <button (click)="generar()">Generar matriz</button>
+        }
+        @else {
+        <button class="secundario" (click)="limpiar()">Limpiar</button>
+        }
 
-  <p class="error" *ngIf="error">{{ error }}</p>
+
+    </div>
+
+    @if(error){
+    <p class="error">{{error}}</p>
+    }
+
 </div>
 
-<div class="tabla" *ngIf="matriz.length">
-  <table>
-    <tbody>
-      <tr *ngFor="let fila of matriz; trackBy: trackByIndex">
-        <td *ngFor="let celda of fila; trackBy: trackByIndex">{{ celda }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="tabla">
+    @if (matriz.length > 0) {
+    <table>
+        <tbody>
+            @for (fila of matriz; track $index) {
+            <tr>
+                @for (celda of fila; track $index) {
+                <td>{{ celda }}</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+    } @else {
+    <p class="hint">Ingrese filas y columnas, luego presione “Generar matriz”.</p>
+    }
 </div>
-
-<p *ngIf="!matriz.length" class="hint">Ingrese filas y columnas, luego presione “Generar matriz”.</p>

@@ -19,13 +19,17 @@
 </div>
 
 <!-- Lista -->
-<ul>
-  <li *ngFor="let n of noticiasFiltradas">
-    <h3>{{ n.titulo }}</h3>
-    <small>{{ n.fecha | date:'mediumDate' }}</small>
-    <p>{{ n.contenido }}</p>
-  </li>
-</ul>
 
-<!-- Empty state -->
-<p *ngIf="noticiasFiltradas.length === 0">No hay noticias para los filtros seleccionados.</p>
+@if(noticiasFiltradas.length >0){
+  <ul>
+    @for(n of noticiasFiltradas; track $index){
+      <li>
+        <h3>{{n.titulo}}</h3>
+        <small>{{n.fecha | date:'mediumDate'}}</small>
+        <p>{{n.contenido}}</p>
+      </li>
+    }
+  </ul>
+}@else {
+  <p>No hay noticias para los filtros seleccionados.</p>
+}
